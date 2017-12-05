@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.sort.util;
 
 /**
  * Created by camiloporto on 2/6/17.
