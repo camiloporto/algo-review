@@ -12,6 +12,20 @@ import java.util.Random;
 public class ArrayPartitionTest {
 
     @Test
+    public void testPartitionOverInterval() {
+
+        ArrayPartition partition = new ArrayPartition();
+
+        int[] input = new int[] {1, 7, 3, 5, 4, 9, 6};
+        int absolutePivotIndex = partition.partition(input, 2, 5, 1);
+        Assert.assertEquals(4, absolutePivotIndex);
+
+        input = new int[] {1, 7, 3, 5, 4, 9, 6};
+        absolutePivotIndex = partition.partition(input, 0, input.length-1, 3);
+        Assert.assertEquals(3, absolutePivotIndex);
+    }
+
+    @Test
     public void testPartition() {
         ArrayPartition partition = new ArrayPartition();
 
