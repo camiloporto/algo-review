@@ -1,4 +1,4 @@
-package algorithm.sort;
+package test.java.algorithm;
 
 import java.util.Collections;
 import java.util.HashSet;

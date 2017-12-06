@@ -1,11 +1,9 @@
-package algorithm.sort;
-
-import algorithm.sort.util.ArrayPartition;
+package main.java.algorithm.classic;
 
 /**
  * Created by camiloporto on 12/5/17.
  */
-public class Selection {
+public class RandomSelection {
 
     public int select(int[] input, int element) {
         ArrayPartition partitioner = new ArrayPartition();

@@ -1,5 +1,7 @@
-package algorithm.sort;
+package test.java.algorithm.classic;
 
+import main.java.algorithm.classic.RandomSelection;
+import test.java.algorithm.ArrayTestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,21 +14,21 @@ import java.util.Random;
 public class RandomSelectionTest {
 
     private ArrayTestHelper arrayTestHelper;
-    private Selection selection;
+    private RandomSelection randomSelection;
 
     public RandomSelectionTest() {
         arrayTestHelper = new ArrayTestHelper();
-        selection = new Selection();
+        randomSelection = new RandomSelection();
     }
 
     @Test
     public void shouldReturnSelectionOrder() {
         int[] input = new int[]{3, 6, 2, 7, 5};
-        int order = selection.select(input, 5);
+        int order = randomSelection.select(input, 5);
         Assert.assertEquals(3, order);
 
         input = new int[]{3};
-        order = selection.select(input, 3);
+        order = randomSelection.select(input, 3);
         Assert.assertEquals(1, order);
 
         Random random = new Random();
@@ -45,7 +47,7 @@ public class RandomSelectionTest {
     }
 
     private void checkSelection(int[] input, int el) {
-        int order = selection.select(input, el);
+        int order = randomSelection.select(input, el);
         Arrays.sort(input);
         int elIndex = Arrays.binarySearch(input, el);
         Assert.assertEquals(order, elIndex+1);

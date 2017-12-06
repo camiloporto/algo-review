@@ -1,4 +1,4 @@
-package algorithm.sort.util;
+package main.java.algorithm.classic;
 
 /**
  * Created by camiloporto on 2/6/17.

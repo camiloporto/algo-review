@@ -1,5 +1,7 @@
-package algorithm.sort;
+package test.java.algorithm.sort;
 
+import test.java.algorithm.ArrayTestHelper;
+import main.java.algorithm.sort.MergeSort;
 import org.junit.Assert;
 import org.junit.Test;
 

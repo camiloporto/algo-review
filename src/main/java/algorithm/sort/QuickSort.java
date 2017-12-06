@@ -1,6 +1,6 @@
-package algorithm.sort;
+package main.java.algorithm.sort;
 
-import algorithm.sort.util.ArrayPartition;
+import main.java.algorithm.classic.ArrayPartition;
 
 /**
  * Created by camiloporto on 12/4/17.

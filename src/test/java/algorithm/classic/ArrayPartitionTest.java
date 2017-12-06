@@ -1,5 +1,6 @@
-package algorithm.sort.util;
+package test.java.algorithm.classic;
 
+import main.java.algorithm.classic.ArrayPartition;
 import org.junit.Assert;
 import org.junit.Test;
 

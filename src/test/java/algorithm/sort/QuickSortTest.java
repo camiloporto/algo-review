@@ -1,10 +1,11 @@
-package algorithm.sort;
+package test.java.algorithm.sort;
 
+import test.java.algorithm.ArrayTestHelper;
+import main.java.algorithm.sort.QuickSort;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 /**
