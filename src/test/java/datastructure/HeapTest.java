@@ -1,6 +1,5 @@
 package datastructure;
 
-import datastructure.Heap;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -50,34 +49,48 @@ public class HeapTest {
         heap.insert(8);
         heap.insert(6);
         heap.insert(7);
-        Assert.assertEquals(5, heap.extractMin());
-        Assert.assertEquals(6, heap.extractMin());
-        Assert.assertEquals(7, heap.extractMin());
-        Assert.assertEquals(8, heap.extractMin());
-        Assert.assertEquals(9, heap.extractMin());
+        Assert.assertEquals(5, heap.extractRoot());
+        Assert.assertEquals(6, heap.extractRoot());
+        Assert.assertEquals(7, heap.extractRoot());
+        Assert.assertEquals(8, heap.extractRoot());
+        Assert.assertEquals(9, heap.extractRoot());
 
     }
 
     @Test
     public void shouldHeapify() {
-        int[] input = new int[]{9, 5, 8, 6, 7, 12};
-        Heap heap = new Heap(input);
+        final boolean MIN_HEAP = true;
+        final boolean MAX_HEAP = false;
 
-        Assert.assertEquals(5, heap.extractMin());
-        Assert.assertEquals(6, heap.extractMin());
-        Assert.assertEquals(7, heap.extractMin());
-        Assert.assertEquals(8, heap.extractMin());
-        Assert.assertEquals(9, heap.extractMin());
+        int[] input = new int[]{9, 5, 8, 6, 7, 12};
+        Heap heap = new Heap(input, MIN_HEAP);
+
+        Assert.assertEquals(5, heap.extractRoot());
+        Assert.assertEquals(6, heap.extractRoot());
+        Assert.assertEquals(7, heap.extractRoot());
+        Assert.assertEquals(8, heap.extractRoot());
+        Assert.assertEquals(9, heap.extractRoot());
 
         input = new int[] {4, 7, 6, 1, 9, 10, 3};
-        heap = new Heap(input);
-        Assert.assertEquals(1, heap.extractMin());
-        Assert.assertEquals(3, heap.extractMin());
-        Assert.assertEquals(4, heap.extractMin());
-        Assert.assertEquals(6, heap.extractMin());
-        Assert.assertEquals(7, heap.extractMin());
-        Assert.assertEquals(9, heap.extractMin());
-        Assert.assertEquals(10, heap.extractMin());
+        heap = new Heap(input, MIN_HEAP);
+        Assert.assertEquals(1, heap.extractRoot());
+        Assert.assertEquals(3, heap.extractRoot());
+        Assert.assertEquals(4, heap.extractRoot());
+        Assert.assertEquals(6, heap.extractRoot());
+        Assert.assertEquals(7, heap.extractRoot());
+        Assert.assertEquals(9, heap.extractRoot());
+        Assert.assertEquals(10, heap.extractRoot());
+
+        input = new int[] {4, 7, 6, 1, 9, 10, 3};
+        heap = new Heap(input, MAX_HEAP);
+
+        Assert.assertEquals(10, heap.extractRoot());
+        Assert.assertEquals(9, heap.extractRoot());
+        Assert.assertEquals(7, heap.extractRoot());
+        Assert.assertEquals(6, heap.extractRoot());
+        Assert.assertEquals(4, heap.extractRoot());
+        Assert.assertEquals(3, heap.extractRoot());
+        Assert.assertEquals(1, heap.extractRoot());
 
     }
 

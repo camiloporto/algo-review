@@ -26,9 +26,9 @@ public class HeapSortTest {
         int[] input = new int[] {4, 7, 6, 1, 9, 10, 3};
         int[] expectedOutput = new int[] {1, 3, 4, 6, 7, 9, 10};
 
-        int[] output = heapSort.sort(input);
+        heapSort.sort(input);
 
-        Assert.assertArrayEquals(expectedOutput, output);
+        Assert.assertArrayEquals(expectedOutput, input);
 
         Random random = new Random();
         input = arrayTestHelper.randomArray(10, random);
@@ -59,8 +59,8 @@ public class HeapSortTest {
         int[] expectedOutput = Arrays.copyOf(input, input.length);
         Arrays.sort(expectedOutput);
 
-        int[] output = heapSort.sort(input);
+        heapSort.sort(input);
 
-        Assert.assertArrayEquals(expectedOutput, output);
+        Assert.assertArrayEquals(expectedOutput, input);
     }
 }

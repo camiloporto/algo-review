@@ -7,13 +7,14 @@ import datastructure.Heap;
  */
 public class HeapSort {
 
-    //FIXME do it inplace
-    public int[] sort(int[] input) {
-        Heap heap = new Heap(input);
-        int[] output = new int[input.length];
-        for (int i = 0; i < input.length; i++) {
-            output[i] = heap.extractMin();
+    public void sort(int[] input) {
+        final boolean MAX_HEAP = false;
+
+        Heap heap = new Heap(input, MAX_HEAP);
+        int max;
+        for (int i = input.length-1; i >= 0; i--) {
+            max = heap.extractRoot();
+            input[i] = max;
         }
-        return output;
     }
 }
