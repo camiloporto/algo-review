@@ -1,7 +1,7 @@
-package test.java.algorithm.sort;
+package algorithm.sort;
 
-import test.java.algorithm.ArrayTestHelper;
-import main.java.algorithm.sort.QuickSort;
+import algorithm.ArrayTestHelper;
+import algorithm.sort.QuickSort;
 import org.junit.Assert;
 import org.junit.Test;
 

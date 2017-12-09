@@ -1,6 +1,6 @@
-package test.java.algorithm.classic;
+package algorithm.classic;
 
-import main.java.algorithm.classic.ArrayPartition;
+import algorithm.classic.ArrayPartition;
 import org.junit.Assert;
 import org.junit.Test;
 

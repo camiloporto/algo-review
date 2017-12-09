@@ -1,9 +1,9 @@
-package test.java.algorithm.sort;
+package algorithm.sort;
 
-import main.java.algorithm.sort.SelectionSort;
+import algorithm.sort.SelectionSort;
 import org.junit.Assert;
 import org.junit.Test;
-import test.java.algorithm.ArrayTestHelper;
+import algorithm.ArrayTestHelper;
 
 import java.util.Arrays;
 import java.util.Random;

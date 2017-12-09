@@ -1,7 +1,7 @@
-package test.java.algorithm.classic;
+package algorithm.classic;
 
-import main.java.algorithm.classic.RandomSelection;
-import test.java.algorithm.ArrayTestHelper;
+import algorithm.classic.RandomSelection;
+import algorithm.ArrayTestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

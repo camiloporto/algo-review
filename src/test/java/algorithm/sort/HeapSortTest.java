@@ -1,24 +1,24 @@
 package algorithm.sort;
 
-import algorithm.ArrayTestHelper;
-import algorithm.sort.MergeSort;
+import algorithm.sort.HeapSort;
 import org.junit.Assert;
 import org.junit.Test;
+import algorithm.ArrayTestHelper;
 
 import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Created by camiloporto on 12/4/17.
+ * Created by camiloporto on 12/7/17.
  */
-public class MergeSortTest {
+public class HeapSortTest {
 
     private ArrayTestHelper arrayTestHelper;
-    private MergeSort mergeSort;
+    private HeapSort heapSort;
 
-    public MergeSortTest() {
+    public HeapSortTest() {
         this.arrayTestHelper = new ArrayTestHelper();
-        mergeSort = new MergeSort();
+        heapSort = new HeapSort();
     }
 
     @Test
@@ -26,7 +26,7 @@ public class MergeSortTest {
         int[] input = new int[] {4, 7, 6, 1, 9, 10, 3};
         int[] expectedOutput = new int[] {1, 3, 4, 6, 7, 9, 10};
 
-        int[] output = mergeSort.sort(input);
+        int[] output = heapSort.sort(input);
 
         Assert.assertArrayEquals(expectedOutput, output);
 
@@ -59,9 +59,8 @@ public class MergeSortTest {
         int[] expectedOutput = Arrays.copyOf(input, input.length);
         Arrays.sort(expectedOutput);
 
-        int[] output = mergeSort.sort(input);
+        int[] output = heapSort.sort(input);
 
         Assert.assertArrayEquals(expectedOutput, output);
     }
-
 }

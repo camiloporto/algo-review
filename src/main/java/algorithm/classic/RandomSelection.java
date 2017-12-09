@@ -1,4 +1,4 @@
-package main.java.algorithm.classic;
+package algorithm.classic;
 
 /**
  * Created by camiloporto on 12/5/17.

@@ -1,4 +1,4 @@
-package test.java.algorithm;
+package algorithm;
 
 import java.util.Collections;
 import java.util.HashSet;
