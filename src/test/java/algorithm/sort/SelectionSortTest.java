@@ -1,6 +1,5 @@
 package algorithm.sort;
 
-import algorithm.sort.SelectionSort;
 import org.junit.Assert;
 import org.junit.Test;
 import algorithm.ArrayTestHelper;
@@ -31,22 +30,22 @@ public class SelectionSortTest {
         Assert.assertArrayEquals(expectedOutput, input);
 
         Random random = new Random();
-        input = arrayTestHelper.randomArray(10, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(10, random);
         checkSort(input);
 
-        input = arrayTestHelper.randomArray(1, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(1, random);
         checkSort(input);
 
-        input = arrayTestHelper.randomArray(2, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(2, random);
         checkSort(input);
 
-        input = arrayTestHelper.randomArray(11, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(11, random);
         checkSort(input);
 
-        input = arrayTestHelper.randomArray(100000, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(100000, random);
         checkSort(input);
 
-        input = arrayTestHelper.randomArray(11, random);
+        input = arrayTestHelper.randomArrayWithMaxValue(11, random);
         Arrays.sort(input);
         checkSort(input);
 
