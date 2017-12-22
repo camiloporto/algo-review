@@ -10,18 +10,22 @@ public class ArrayQueue<T> implements Queue<T> {
     private T[] queue;
     private int head;
     private int tail;
-    private int size;
 
     public ArrayQueue(Class<T> elementType, int maxSize) {
-        this.queue = (T[]) Array.newInstance(elementType, maxSize);
-        head = -1;
-        tail = -1;
-        size = 0;
+        this.queue = (T[]) Array.newInstance(elementType, maxSize+1);
+        head = 0;
+        tail = 0;
     }
 
     @Override
     public int size() {
-        return size;
+
+        if(tail >= head) {
+            return (tail - head);
+        }
+        else {
+            return (tail) + (queue.length - head);
+        }
     }
 
     @Override
@@ -29,19 +33,15 @@ public class ArrayQueue<T> implements Queue<T> {
         if(isFull()) {
             throw new IllegalStateException("queue full");
         }
-        if(head == -1) {
-            head = 0;
-        }
-        tail++;
         if(tail == queue.length) {
             tail = 0;
         }
         queue[tail] = e;
-        size++;
+        tail++;
     }
 
     private boolean isFull() {
-        return size == queue.length;
+        return head == (tail + 1);
     }
 
     @Override
@@ -62,12 +62,11 @@ public class ArrayQueue<T> implements Queue<T> {
         if(head == queue.length) {
             head = 0;
         }
-        size--;
         return e;
     }
 
     @Override
     public boolean isEmpty() {
-        return size() == 0;
+        return head == tail;
     }
 }
