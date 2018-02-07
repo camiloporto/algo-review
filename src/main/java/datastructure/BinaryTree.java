@@ -51,37 +51,6 @@ public class BinaryTree {
         inOrder(root.right(), elements);
     }
 
-    public void insert(int key) {
-        TreeNode newNode = new TreeNode(key);
-        if(root == null) {
-            root = newNode;
-        }
-        else {
-            TreeNode parent = root;
-            boolean foundParent = false;
-            while (!foundParent) {
-                if(newNode.key() <= parent.key()) {
-                    if(parent.left() == null) {
-                        foundParent = true;
-                        parent.setLeft(newNode);
-                    }
-                    else {
-                        parent = parent.left();
-                    }
-                }
-                else {
-                    if(parent.right() == null) {
-                        foundParent = true;
-                        parent.setRight(newNode);
-                    }
-                    else {
-                        parent = parent.right();
-                    }
-                }
-            }
-        }
-    }
-
     //recursive version of insertion node...
     /*
     private void insert(TreeNode root, TreeNode newNode) {
@@ -103,4 +72,123 @@ public class BinaryTree {
         }
     }
     */
+
+    public void insert(int key) {
+        TreeNode newNode = new TreeNode(key);
+        if(root == null) {
+            root = newNode;
+        }
+        else {
+            TreeNode parent = null;
+            TreeNode place = root;
+            while (place != null) {
+                parent = place;
+                if(key <= place.key()) {
+                    place = place.left();
+                }
+                else {
+                    place = place.right();
+                }
+            }
+            if(key <= parent.key()) {
+                parent.setLeft(newNode);
+            }
+            else {
+                parent.setRight(newNode);
+            }
+        }
+    }
+
+    public TreeNode min() {
+        return min(this.root);
+    }
+
+
+    public TreeNode max() {
+        return max(this.root);
+    }
+
+    private TreeNode max(TreeNode root) {
+        TreeNode n = root;
+        while (n != null && n.right() != null) {
+            n = n.right();
+        }
+
+        return n;
+    }
+
+    public TreeNode sucessor(TreeNode node) {
+        if(node.right() != null) {
+            return min(node.right());
+        }
+        else {
+            TreeNode n = node;
+            TreeNode parent = n.parent();
+            while (parent != null && parent.right().equals(n)) {
+                n = parent;
+                parent = n.parent();
+            }
+            return parent;
+        }
+    }
+
+    private TreeNode min(TreeNode root) {
+        TreeNode n = root;
+        while (n != null && n.left() != null) {
+            n = n.left();
+        }
+
+        return n;
+    }
+
+    public TreeNode predecessor(TreeNode node) {
+        if(node.left() != null) {
+            return max(node.left());
+        }
+        else {
+            TreeNode n = node;
+            TreeNode parent = n.parent();
+            while (parent != null && parent.left().equals(n)) {
+                n = parent;
+                parent = n.parent();
+            }
+            return parent;
+        }
+    }
+
+    public void delete(TreeNode node) {
+        if(node.left() == null) {
+            transplantSubtree(node, node.right());
+        }
+        else if(node.right() == null) {
+            transplantSubtree(node, node.left());
+        }
+        else {
+            TreeNode sucessor = min(node.right());
+            if(!sucessor.parent().equals(node)) {
+                transplantSubtree(sucessor, sucessor.right());
+                sucessor.setRight(node.right());
+            }
+            transplantSubtree(node, sucessor);
+            sucessor.setLeft(node.left());
+        }
+    }
+
+    private void transplantSubtree(TreeNode toDelete, TreeNode newNode) {
+        if(toDelete.isRoot()) {
+            this.root = newNode;
+        }
+        else if(toDelete.parent().left() != null && toDelete.parent().left().equals(toDelete)) {
+            toDelete.parent().setLeft(newNode);
+        }
+        else {
+            toDelete.parent().setRight(newNode);
+        }
+
+        if(newNode != null) {
+            newNode.setParent(toDelete.parent());
+        }
+
+        toDelete.setParent(null);
+    }
 }

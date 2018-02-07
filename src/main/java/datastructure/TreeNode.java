@@ -16,12 +16,17 @@ public class TreeNode {
 
     public void setLeft(TreeNode left) {
         this.left = left;
-        left.parent = this;
+        if(left != null) {
+            left.parent = this;
+        }
     }
 
     public void setRight(TreeNode right) {
         this.right = right;
-        right.parent = this;
+        if(right != null) {
+            right.parent = this;
+        }
+
     }
 
     public int key() {
@@ -34,5 +39,19 @@ public class TreeNode {
 
     public TreeNode right() {
         return this.right;
+    }
+
+    public TreeNode parent() {return parent;}
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
+    }
+
+    public boolean isRoot() {
+        return parent == null;
+    }
+
+    public boolean isLeaf() {
+        return (left == null) && (right == null);
     }
 }
